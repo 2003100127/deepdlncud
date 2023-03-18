@@ -18,7 +18,7 @@
 |____/ \___|\___| .__/ \__,_|_|_| |_|\___|\___/|____/
                 |_|
 ```
-This repository is a standalone package of the DeepdlncUD method. DeepdlncUD is used to predict small molecule-mediated regulatory effects on lncRNA expression. This method is powered by 9 deep learning models.
+This repository is a standalone package of the DeepdlncUD method. DeepdlncUD is used to predict the regulation types of small molecules on modulating lncRNA expression. This method is powered by 9 deep learning models.
 
 ## Installation
 * ### PyPI
