@@ -56,6 +56,7 @@ argument details:
 
 ## Usage
 ### Download models
+see models https://github.com/2003100127/deepdlncud/releases/tag/model
 ```shell
 deepdlncud_download # this is to download the model in your current folder
 ```
