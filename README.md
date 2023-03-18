@@ -70,9 +70,9 @@ Please use `-mf` of `deepdlncud` then to access to where the models are located.
 ### Input format
 Two example files in DeepdlncUD are 60606.txt and HIF1A-AS1.fasta for a small molecule and a lncRNA molecule.
 
-* #### Estradiol (small molecule)
+* #### Clopidogrel (small molecule CID: 60606)
 
-![estradiol](https://github.com/2003100127/deepdlncud/blob/main/img/Estradiol.png?raw=true)
+![estradiol](https://github.com/2003100127/deepdlncud/blob/main/img/Clopidogrel.png?raw=true)
 ```shell
 # 60606.txt
 C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@@H]2O)CCC4=C3C=CC(=C4)O
