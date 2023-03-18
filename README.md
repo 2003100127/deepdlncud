@@ -57,7 +57,7 @@ argument details:
 ## Usage
 ### Download models
 ```shell
-deepdlncud_download -o /the/path/you/prefer/model.zip
+deepdlncud_download # this is to download the model in your current folder
 ```
 
 ```
@@ -75,7 +75,7 @@ Two example files in DeepdlncUD are 60606.txt and HIF1A-AS1.fasta for a small mo
 ![estradiol](https://github.com/2003100127/deepdlncud/blob/main/img/Clopidogrel.png?raw=true)
 ```shell
 # 60606.txt
-C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@@H]2O)CCC4=C3C=CC(=C4)O
+COC(=O)[C@H](C1=CC=CC=C1Cl)N2CCC3=C(C2)C=CS3
 ```
 
 * #### hsa-let-7e-5p (lncRNA)
