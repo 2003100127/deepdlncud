@@ -1,0 +1,2 @@
+prob	predicted_type
+0.71955997	Upregulation
