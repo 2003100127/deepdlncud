@@ -1,0 +1,2 @@
+prob	predicted_type
+0.80776507	Downregulation
