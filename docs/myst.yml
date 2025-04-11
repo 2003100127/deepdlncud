@@ -38,7 +38,7 @@ site:
 #        - title: Prediction
 #          url: /prediction
     - title: Home
-      url: /index
+      url: /deepdlncud/index
     - title: Spotlight
       url: /deepdlncud/spotlight
     - title: Versions
