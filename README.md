@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://github.com/2003100127/deepdlncud/blob/main/docs/img/deepdlncud-logo.png?raw=true" width="200" height="62">
+    <img src="https://github.com/2003100127/deepdlncud/blob/main/docs/img/deepdlncud-logo.png?raw=true" width="200" height="66">
     <br>
 </h1>
 
