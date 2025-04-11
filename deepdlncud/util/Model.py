@@ -1,5 +1,5 @@
 __author__ = "Jianfeng Sun"
-__version__ = "v1.0"
+__version__ = "0.0.1"
 __copyright__ = "Copyright 2022"
 __license__ = "MIT"
 __email__ = "jianfeng.sunmt@gmail.com"
@@ -9,7 +9,6 @@ import numpy as np
 import pandas as pd
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
-from deepdlncud.Pipe import fetch
 
 
 def drestruct(data, met):
@@ -19,51 +18,42 @@ def drestruct(data, met):
         return data
 
 
-class predict(object):
+class Model:
 
     def __init__(
             self,
-            smile_fpn,
-            fasta_fpn,
+            mat_np,
             method,
             model_fp,
             sv_fpn,
+            batch_size=100,
+            thres=0.5,
     ):
         self.method = method
         self.model_fp = model_fp
+        self.mat_np = mat_np
         self.sv_fpn = sv_fpn
-        self.ind = fetch(
-            smile_fpn=smile_fpn,
-            fasta_fpn=fasta_fpn,
-        )
+        self.batch_size = batch_size
+        self.thres = thres
 
     def m(self, ):
         loaded_model = tf.keras.models.load_model(self.model_fp)
-        pret = loaded_model.predict(drestruct(self.ind, self.method), batch_size=1)
-        t = []
-        if pret[0][1] > pret[0][0]:
-            t.append([pret[0][1], 'Upregulation'])
-        else:
-            t.append([pret[0][0], 'Downregulation'])
-        df = pd.DataFrame(t, columns=['prob', 'predicted_type'])
-        df.to_csv(
-            self.sv_fpn,
-            sep='\t',
-            header=True,
-            index=False,
-        )
+        pred = loaded_model.predict(drestruct(self.mat_np, self.method), batch_size=self.batch_size)
+        df = pd.DataFrame(pred[:, [1]], columns=['prob_up'])
+        df['pred_type'] = df['prob_up'].apply(lambda x: 'Upregulation' if x > self.thres else 'Downregulation')
+        print(df)
+        if self.sv_fpn:
+            df.to_csv(
+                self.sv_fpn,
+                sep='\t',
+                header=True,
+                index=False,
+            )
         return df
 
 
 if __name__ == "__main__":
-    p = predict(
-
-        # smile_fpn='data/example/6918837.txt',
-        # fasta_fpn='data/example/lnc-CPO-4.fasta',
-
-        smile_fpn='data/example/60606.txt',
-        fasta_fpn='data/example/HIF1A-AS1.fasta',
-
+    p = Model(
         method='DenseNet',
         # method='CNN',
         # method='ConvMixer64',
@@ -83,6 +73,8 @@ if __name__ == "__main__":
         # model_fp='model/resnet_prea18',
         # model_fp='model/resnet_prea50',
         # model_fp='model/scaresnet',
+
+        mat_np=None,
 
         sv_fpn='./pred.deepdlncud',
     )

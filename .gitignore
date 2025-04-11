@@ -1,5 +1,8 @@
 # ingore data folder
-deepdlncud/model/
+data/
+deepdlncud/convert.py
+docs/
+.idea/
 
 
 # Byte-compiled / optimized / DLL files
